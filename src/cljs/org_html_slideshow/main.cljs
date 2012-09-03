@@ -357,7 +357,7 @@
    goog.events.KeyCodes.END :show-last-slide
 
    goog.events.KeyCodes.SPACE :show-next-slide
-   goog.events.KeyCodes.ENTER :show-next-slide        
+   goog.events.KeyCodes.ENTER :show-next-slide
    goog.events.KeyCodes.MAC_ENTER :show-next-slide
    goog.events.KeyCodes.RIGHT :show-next-slide
    goog.events.KeyCodes.DOWN :show-next-slide
