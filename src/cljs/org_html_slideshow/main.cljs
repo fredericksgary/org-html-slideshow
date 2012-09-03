@@ -278,10 +278,14 @@
 (defn next-slide []
   (find-slide-after (:id (current-slide))))
 
+(def ^:private show-slide-callbacks (atom []))
+(def add-new-slide-callback (partial swap! show-slide-callbacks conj))
+
 (defn show-slide [{:keys [id html]}]
   (set-location-fragment id)
   (set! (. (dom/getElement "current-slide") -innerHTML) html)
-  (show-presenter-slides))
+  (show-presenter-slides)
+  (doseq [func @show-slide-callbacks] (func (dom/getElement "current-slide"))))
 
 
 ;;; GUI EVENTS
