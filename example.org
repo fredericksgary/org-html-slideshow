@@ -145,6 +145,9 @@ Sometimes it's safest to add an "empty" heading at the end of your document to m
 
 #+BEGIN_HTML
 <script type="text/javascript" src="production/org-html-slideshow.js"></script>
+<script type="text/javascript">
+  org_html_slideshow.main.main();
+</script>
 #+END_HTML
 
 # Local Variables:

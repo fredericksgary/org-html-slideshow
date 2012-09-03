@@ -550,7 +550,7 @@
 
 ;;; MAIN
 
-(defn main []
+(defn ^:export main []
   (.setCapturing (goog.debug.Console.) true)
   (info "Application started")
   (info "Preparing document")
@@ -571,5 +571,3 @@
   (install-event-handlers)
   (install-control-panel)
   (install-keyhandler (dom/getDocument)))
-
-(main)

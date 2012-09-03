@@ -48,6 +48,9 @@ to the directory containing your .org file:
 
     #+BEGIN_HTML
     <script type="text/javascript" src="org-html-slideshow.js"></script>
+    <script type="text/javascript">
+      org_html_slideshow.main.main();
+    </script>
     #+END_HTML
 
     # Local Variables:
