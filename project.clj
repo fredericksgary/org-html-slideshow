@@ -1,4 +1,4 @@
-(defproject org-html-slides "0.0.1-SNAPSHOT"
+(defproject com.gfredericks/org-html-slides "0.0.2"
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [domina "1.0.0"]]
