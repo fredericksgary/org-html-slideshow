@@ -1,14 +1,16 @@
 (defproject com.gfredericks/org-html-slides "0.0.2"
   :min-lein-version "2.0.0"
-  :dependencies [[org.clojure/clojure "1.4.0"]
+  :dependencies [[org.clojure/clojure "1.5.0-RC4"]
                  [domina "1.0.0"]]
   :library-path "lib/jars"
   :source-paths ["src/clj" "src/cljs" "lib/domina/src/cljs" "lib/one/src/lib/cljs"]
-  :plugins [[lein-cljsbuild "0.2.7"]]
-  :cljsbuild {:builds [{:source-path "src/cljs"
+  :plugins [[lein-cljsbuild "0.3.0"]]
+  :cljsbuild {:builds [{:source-paths ["src/cljs"]
+                        :id :prod
                         :compiler {:output-to "production/org-html-slideshow.js"
                                    :optimizations :advanced}}
-                       {:source-path "src/cljs"
+                       {:source-paths ["src/cljs"]
+                        :id :dev
                         :compiler {:output-to "out/development/org-html-slideshow.js"
                                    :optimizations :whitespace
                                    :pretty-print true}}]})
