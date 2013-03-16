@@ -279,7 +279,7 @@
   (find-slide-after (:id (current-slide))))
 
 (def ^:private show-slide-callbacks (atom []))
-(def add-new-slide-callback (partial swap! show-slide-callbacks conj))
+(def ^:export add-new-slide-callback (partial swap! show-slide-callbacks conj))
 
 (defn show-slide [{:keys [id html]}]
   (set-location-fragment id)
@@ -315,7 +315,7 @@
     (enter-slideshow-mode)
     (leave-slideshow-mode)))
 
-(defn toggle-mode []
+(defn ^:export toggle-mode []
   (info '(toggle-mode))
   (swap! slideshow-mode? not))
 
