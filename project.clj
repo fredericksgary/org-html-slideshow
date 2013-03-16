@@ -1,6 +1,6 @@
 (defproject com.gfredericks/org-html-slides "0.0.2"
   :min-lein-version "2.0.0"
-  :dependencies [[org.clojure/clojure "1.5.0-RC4"]
+  :dependencies [[org.clojure/clojure "1.5.1"]
                  [domina "1.0.0"]]
   :library-path "lib/jars"
   :source-paths ["src/clj" "src/cljs" "lib/domina/src/cljs" "lib/one/src/lib/cljs"]
