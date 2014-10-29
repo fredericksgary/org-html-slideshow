@@ -13,4 +13,5 @@
                         :id :dev
                         :compiler {:output-to "out/development/org-html-slideshow.js"
                                    :optimizations :whitespace
-                                   :pretty-print true}}]})
+                                   :pretty-print true}}]}
+  :deploy-repositories [["releases" :clojars]])
