@@ -4,6 +4,7 @@
             [goog.array :as array]
             [goog.dom :as dom]
             [goog.dom.classes :as classes]
+            [goog.html.SafeHtml :as SafeHtml]
             [goog.string :as string]
             [goog.style :as style]
             [goog.events :as events]
@@ -88,6 +89,10 @@
 (defn hide! [content]
   (when content (style/showElement (d/single-node content) false)))
 
+(defn html->node
+  [html]
+  (dom/safeHtmlToNode
+   (SafeHtml/createSafeHtmlSecurityPrivateDoNotAccessOrElse html)))
 
 ;;;
 
@@ -146,7 +151,7 @@
 (defn install-folds []
   (doseq [{:keys [head-elem body-elem]} (get-folds)]
     (toggle-visibility head-elem body-elem)
-    (let [a (dom/htmlToDocumentFragment show-hide-html)]
+    (let [a (html->node show-hide-html)]
       (. head-elem (appendChild a))
       (let [a (dom-tags "a" "show-hide" head-elem)]
         (events/listen head-elem goog.events.EventType.CLICK
@@ -188,7 +193,7 @@
   (style/setStyle (dom/getElement "c-panel") "opacity" 0.0))
 
 (defn install-control-panel []
-  (. (body-elem) (appendChild (dom/htmlToDocumentFragment control-html)))
+  (. (body-elem) (appendChild (html->node control-html)))
   (let [panel (dom/getElement "c-panel")]
     (dispatch/fire :show-control-panel)
     (Timer/callOnce (fire-handler :hide-control-panel) 3000)
@@ -569,7 +574,7 @@
   (remove-heading-spaces)
   (install-folds)
   (. (body-elem)
-     (appendChild (dom/htmlToDocumentFragment current-slide-div-html)))
+     (appendChild (html->node current-slide-div-html)))
   (hide! (d/by-id "current-slide"))
   (reset! slides (get-slides))
   (info '(count slides) (count @slides))
